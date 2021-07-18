@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS orders (
+	order_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	user_id INTEGER NOT NULL,
+	creation_date TEXT NOT NULL,
+	status TEXT NOT NULL,
+	goods_id INTEGER NOT NULL,
+	FOREIGN KEY (goods_id)
+		REFERENCES available_goods (goods_id)
+			ON DELETE NO ACTION
+			ON UPDATE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS goods (
+	goods_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	price INTEGER NOT NULL,
+	name TEXT NOT NULL,
+	goods_index TEXT NOT NULL,
+	status INTEGER NOT NULL,
+	region TEXT NOT NULL,
+	images TEXT NOT NULL
+);
